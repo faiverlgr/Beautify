@@ -1,0 +1,468 @@
+@import ./_variables
+@import ./_reboot
+
+// BLOCKS START
+
+.container
+    max-width: 1216px
+    margin: 0 auto
+    box-sizing: content-box
+    padding: 0 15px
+@media ( max-width: 992px )
+    .container
+        max-width: 900px
+@media ( max-width: 768px )
+    .container
+        max-width: 685px
+@media ( max-width: 576px )
+    .container
+        max-width: 500px
+
+.popup
+    display: none
+@media (max-width: 768px )
+    .popup
+        display: flex
+        position: fixed
+        top: -100%
+        left: 0
+        width: 100%
+        height: 100%
+        z-index: 1
+        transition: 300ms all
+        background: #fff
+        &__content
+            padding: 110px 15px 70px 15px
+            width: 100%
+            height: 100%
+            display: flex
+            flex-direction: column
+            justify-content: flex-start
+            align-items: center
+            gap: 30px
+            overflow: auto
+            .header__menu
+                display: flex
+            .header__list
+                display: flex
+                flex-direction: column
+                align-items: center
+                gap: 18px
+                .header__link
+                    padding: 10px
+                    font-size: 20px
+                    display: block
+                    text-transform: uppercase
+                    outline: none
+                    transition: 300ms color
+                    &:hover, &:focus
+                        color: $support-color
+    .show
+        top: 0
+
+.title-bg
+    font-weight: 900
+    font-size: calc($titleFontMin + $titleFontDiff * ((var(--body-max-width) - $minRes) / $difMaxMinRes))
+    line-height: 1.14
+    color: $secondary-color
+
+.title-sm
+    font-weight: 700
+    font-size: 40px
+    line-height: 1.35
+    color: $secondary-color
+
+.img
+    display: block
+    margin: 0 auto
+    width: 100%
+
+.section_padding
+    padding: calc($paddMin + $paddDiff * ((var(--body-max-width) - $minRes) / $difMaxMinRes)) 0
+
+.divider
+    display: block
+    width: 100px
+    height: 12px
+    border-radius: 100px
+    background: $support-color
+// BLOCKS END
+
+// HEADER  START
+
+.header
+    background: $bg-color
+    &__wrapper
+        position: relative
+        z-index: 2
+        padding: calc($paddMinH + $paddDiffH * ((var(--body-max-width) - $minRes) / $difMaxMinRes)) 0
+        display: flex
+        align-items: center
+        justify-content: space-between
+    .logo
+        &__link
+            font-size: calc($logoMin + $logoDiff * ((var(--body-max-width) - $minRes) / $difMaxMinRes))     
+            font-weight: 500
+            color: $support-color
+    &__menu-button
+        display: flex
+        align-items: center
+        justify-content: space-between
+        gap: 60px
+    &__menu
+        display: flex
+    &__list
+        display: flex
+        align-items: center
+        justify-content: space-between
+        flex-wrap: wrap
+        gap: 30px
+    &__link
+        font-weight: 500
+        font-size: 14px
+        transition: 300ms color
+        outline: none
+        &:hover, &:focus
+            color: $support-color
+    &__button
+        display: block
+        width: 90px
+        min-height: 36px
+        font-weight: 500
+        font-size: 14px
+        text-align: center
+        color: $btn-text-color
+        background: $support-color
+        border-radius: 6px
+        outline: none
+        transition: 300ms all
+        &:hover, &:focus
+            background: $hover-btn
+    &__hamburger
+        display: none  
+@media ( max-width: 768px )
+    .header
+        &__menu-button
+            gap: 20px
+        &__menu
+            display: none
+        &__hamburger
+            padding: 10px
+            display: block
+            background: transparent
+        .hamburger
+            &__span
+                display: block
+                position: relative
+                width: 30px
+                height: 3px
+                border-radius: 2px
+                background: $main-color
+                transform: rotate(180deg)
+                transition: 500ms all
+                &::after, &::before
+                    content: ''
+                    display: block
+                    width: 26px
+                    height: 3px
+                    position: absolute
+                    top: 8px
+                    left: 0
+                    background: $main-color
+                    border-radius: 2px
+                    transition: 500ms all
+                &::before
+                    width: 22px
+                    top: -8px
+        .active
+            .hamburger__span
+                transform: rotate(45deg)
+                &::after
+                    opacity: 0
+                &::before
+                    width: 30px
+                    transform: rotate(-90deg)
+                    top: 0
+@media ( max-width: 576px )
+    .header
+        &__button
+            padding: 10px 0
+            width: 60px
+            min-height: 26px
+            font-size: 12px
+
+// HEADER  END
+
+
+// PROMO START
+
+.promo
+    background: $bg-color
+    &__wrapper
+        display: flex
+        align-items: center
+        justify-content: space-between
+        gap: 20px
+    &__img-wrapper
+        flex-basis: calc($flexBasisImgMinP + $flexBasisImgDiffP * ((var(--body-max-width) - $minRes) / $difMaxMinRes))
+    &__text-wrapper
+        flex-basis: calc($flexBasisTextMinP + $flexBasisTextDiffP * ((var(--body-max-width) - $minRes) / $difMaxMinRes))
+    &__title
+        margin: 0 0 calc($margTitletMinP + $margTitleDiffP * ((var(--body-max-width) - $minRes) / $difMaxMinRes)) 0
+    &__descr
+        margin: 0 0 calc($margDescrMinP + $margDescrDiffP * ((var(--body-max-width) - $minRes) / $difMaxMinRes)) 0
+        font-weight: 500
+        line-height: 1.62
+        span
+            font-weight: 700
+            text-decoration: underline
+    &__button
+        display: block
+        width: 320px
+        min-height: 60px
+        font-size: 15px
+        text-align: center
+        color: $btn-text-color
+        background: $support-color
+        border-radius: 10px
+        transition: 300ms all
+        &:hover, &:focus
+            background: $hover-btn
+@media( max-width: 768px )
+    .promo
+        &__wrapper
+            flex-direction: column-reverse
+        &__img-wrapper
+            flex-basis: 0
+            max-width: 400px
+        &__text-wrapper
+            flex-basis: 0
+        &__title
+            text-align: center
+        &__descr
+            text-align: center
+        &__button
+            margin: 0 auto
+@media( max-width: 576px )
+    .promo
+        &__img-wrapper
+            display: none
+        &__title
+            text-align: left
+        &__descr
+            text-align: left
+        &__button
+            width: 100%
+            min-height: 55px
+
+// PROMO END       
+
+
+// STATISTICS START
+
+.statistics
+    &__wrapper
+        display: flex
+        align-items: center
+        justify-content: space-between
+        gap: 70px
+    &__text-wrapper
+        flex-basis: calc($flexBasisTextMinS + $flexBasisTextDiffS * ((var(--body-max-width) - $minRes) / $difMaxMinRes))
+    &__stats-wrapper
+        position: relative
+        display: flex
+        align-items: center
+        justify-content: space-between
+        gap: 40px
+        flex-basis: calc($flexBasisStatsMinS + $flexBasisStatsDiffS * ((var(--body-max-width) - $minRes) / $difMaxMinRes))
+    &__title
+        margin: 0 0 12px 0
+    &__descr
+        margin: 0 0 10px 0        
+    .stats
+        &__item
+            padding: 30px 40px
+            display: flex
+            flex-direction: column
+            align-items: center
+            justify-content: center
+            gap: 14px
+            width: 350px
+            min-height: 270px
+            background: $support-color
+            border-radius: 20px
+            color: $btn-text-color
+            box-shadow: -40px 40px 50px rgba(85, 85, 85, 0.14)
+        &__percent
+            font-weight: 700
+            font-size: 90px
+            line-height: 1.11
+        &__descr
+            font-size: 14px
+            line-height: 1.57
+        &__img-wrapper
+            position: absolute
+            top: -45%
+            left: 30%
+            width: 487px
+@media( max-width: 1200px )
+    .statistics
+        &__wrapper
+            flex-direction: column
+        &__text-wrapper
+            flex-basis: 0
+        &__stats-wrapper
+            flex-basis: 0
+        &__title
+            text-align: center
+        &__descr
+            text-align: center
+        &__divider
+            margin: 0 auto
+        .stats
+            &__img-wrapper
+                left: 40%
+                top: -15%
+                width: 375px
+@media( max-width: 768px )
+    .statistics
+        &__wrapper
+            gap: 25px
+        &__stats-wrapper
+            flex-direction: column
+            gap: 20px
+        &__divider
+            display: none
+        .stats
+            &__item
+                width: 320px
+                min-height: 220px
+                align-items: flex-start
+                border: 8px solid #F4F4F4
+                gap: 10px
+            &__img-wrapper
+                display: none
+            &__percent
+                font-size: 60px
+            &__descr
+                font-size: 14px
+@media( max-width: 576px )
+    .statistics
+        .stats
+            &__item
+                width: 290px
+        &__title
+            text-align: left
+        &__descr
+            text-align: left
+
+// STATISTICS END
+
+
+
+.platform
+    &__content
+        display: flex
+        align-items: center
+        justify-content: space-between
+        gap: 95px
+    &__title
+        text-align: center
+        font-weight: 700
+        margin: 0 0 calc($margTitleMinPl + $margTitleDiffPl * ((var(--body-max-width) - $minRes) / $difMaxMinRes)) 0
+        span
+            color: $support-color
+    &__text-wrapper
+        display: flex
+        flex-direction: column
+        gap: 55px
+    &__cards-wrapper
+        display: flex
+        gap: 50px
+    .text
+        &__title
+            span
+                color: $support-color
+        &__list
+            display: flex
+            flex-direction: column
+            gap: 20px
+    .list
+        &__item
+            position: relative
+            margin: 0 0 0 24px
+            font-weight: 500
+            &::before, &::after
+                content: ''
+                display: block
+                position: absolute
+                width: 18px
+                height: 18px
+                top: 4px
+                left: -25px
+                border-radius: 100%
+                opacity: 0.32
+                background: $support-color
+            &::after  
+                width: 9px
+                height: 9px
+                left: -20px
+                top: 8px
+                opacity: 1
+    .cards
+        &__items-wrapper
+            display: flex
+            flex-direction: column
+            gap: 50px
+        .items-wrapper_margin
+            margin: 40px 0 0 0 
+        &__item
+            padding: 30px
+            width: 260px
+            height: 180px
+            background: $btn-text-color
+            border-radius: 16px
+            box-shadow: 30px 30px 60px rgba(85, 85, 85, 0.1)
+        .item
+            &__rounders
+                margin: 0 0 20px 0
+                display: flex
+                align-items: center
+            &__rounder
+                display: block
+                position: relative
+                margin: 0 -40px 0 0
+                width: 80px
+                height: 80px
+                border-radius: 100%
+            &__descr
+                font-weight: 500
+                font-size: 14px
+            .item__rounder-1
+                background: #DE8B87
+            .item__rounder-2
+                background: $support-color
+            .item__rounder-3
+                background: $main-color
+            .item__rounder-4
+                border: 1px solid #EE9591
+            .z-index-1
+                z-index: 4
+            .z-index-2
+                z-index: 3
+            .z-index-3
+                z-index: 2
+            .z-index-4
+                z-index: 1
+@media ( max-width: 1299px )
+    .platform
+        &__content
+            gap: 30px
+        &__text-wrapper
+            gap: 30px
+        &__cards-wrapper
+            gap: 20px
+        .cards
+            &__items-wrapper
+                gap: 20px
+    
