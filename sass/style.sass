@@ -89,7 +89,9 @@
     height: 12px
     border-radius: 100px
     background: $support-color
+
 // BLOCKS END
+
 
 // HEADER  START
 
@@ -284,6 +286,8 @@
         margin: 0 0 10px 0        
     .stats
         &__item
+            position: relative
+            z-index: 2
             padding: 30px 40px
             display: flex
             flex-direction: column
@@ -305,6 +309,7 @@
             line-height: 1.57
         &__img-wrapper
             position: absolute
+            z-index: 1
             top: -45%
             left: 30%
             width: 487px
@@ -534,6 +539,87 @@
                     margin: 0 calc($margRounderMinPl-576 - $margRounderDiffPl-576 * ((var(--body-max-width) - $minRes) / $difMaxMinRes)) 0 0
 
 // PLATFORM END   
+
+
+// FACILITIES START  
+
+.facilities
+    &__divider
+        margin: 0 0 calc($margDividerMinF + $margDividerDiffF * ((var(--body-max-width) - $minRes) / $difMaxMinRes)) 0
+    &__title
+        max-width: 600px 
+        span
+            color: $support-color
+    &__cards-wrapper
+        display: grid
+        gap: calc($cardsGapMinF + $cardsGapDiffF * ((var(--body-max-width) - $minRes) / $difMaxMinRes))
+        grid-template-columns: repeat(4, minmax(200px, 1fr))
+        grid-template-rows: repeat(2, minmax(200px, 1fr))
+        grid-auto-rows: minmax(200px, 1fr)
+    .cards
+        &__item
+            padding: 30px
+            display: flex
+            flex-direction: column
+            align-items: center
+            justify-content: center
+            gap: 22px
+            border-radius: 16px
+            box-shadow: 50px 50px 60px rgba(85, 85, 85, 0.08)
+            background: #FFFBFB     
+    .item
+        &__descr
+            font-size: 26px
+            font-weight: 500   
+            line-height: 1.54
+            text-align: center
+            min-height: 80px
+@media ( max-width: 992px )
+    .facilities
+        &__cards-wrapper
+            justify-content: center
+            gap: 24px
+            grid-template-columns: repeat(2, minmax( 274px, 1fr ))
+            grid-template-rows: repeat(4, minmax(200px, 1fr))
+        .cards
+            &__item
+                padding: 22px
+        .item
+            &__descr
+                font-size: 20px
+                min-height: 62px
+@media ( max-width: 768px )
+    .facilities
+        &__cards-wrapper
+            grid-template-columns: repeat(2, minmax( 200px, 1fr ))
+            grid-template-rows: repeat(4, minmax(175px, 1fr))
+            grid-auto-rows: minmax(175px, 1fr)
+        .cards
+            &__item
+                gap: 12px
+                padding: 18px
+        .item
+            &__descr
+                font-size: 18px
+                min-height: inherit
+@media ( max-width: 576px )
+    .facilities
+        &__cards-wrapper
+            gap: 12px
+            grid-template-columns: repeat(2, minmax( 135px, 1fr ))
+            grid-template-rows: repeat(4, minmax(110px, 1fr))
+            grid-auto-rows: minmax(110px, 1fr)
+        .cards
+            &__item
+                gap: 10px
+                padding: 12px
+        .item
+            &__descr
+                font-size: 14px
+            &__img-wrapper
+                width: 50px
+
+// FACILITIES END  
 
 
 // MENTOR START
