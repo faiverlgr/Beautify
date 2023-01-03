@@ -68,7 +68,7 @@
 
 .title-sm
     font-weight: 700
-    font-size: 40px
+    font-size: calc($titleSmFontMin + $titleSmFontDiff * ((var(--body-max-width) - $minRes) / $difMaxMinRes))
     line-height: 1.35
     color: $secondary-color
 
@@ -417,21 +417,24 @@
         .items-wrapper_margin
             margin: 40px 0 0 0 
         &__item
+            display: flex
+            flex-direction: column
+            justify-content: center
+            gap: 20px
             padding: 30px
             width: 260px
-            height: 180px
-            background: $btn-text-color
+            min-height: 180px
+            background: #FFFBFB
             border-radius: 16px
             box-shadow: 30px 30px 60px rgba(85, 85, 85, 0.1)
         .item
             &__rounders
-                margin: 0 0 20px 0
                 display: flex
                 align-items: center
             &__rounder
                 display: block
                 position: relative
-                margin: 0 -40px 0 0
+                margin: 0 -20% 0 0
                 width: 80px
                 height: 80px
                 border-radius: 100%
@@ -465,4 +468,64 @@
         .cards
             &__items-wrapper
                 gap: 20px
-    
+@media ( max-width: 992px )
+    .platform
+        &__content
+            flex-direction: column
+            gap: 40px
+        &__cards-wrapper
+            gap: 50px
+        .cards
+            &__item
+                padding: calc($paddCardMinPl + $paddCardDiffPl * ((var(--body-max-width) - $minRes) / $difMaxMinRes))
+                width: calc($widthCardMinPl + $widthCardDiffPl * ((var(--body-max-width) - $minRes) / $difMaxMinRes))
+            &__items-wrapper
+                gap: 50px
+            .items-wrapper_margin
+                margin: 0
+            .item
+                &__rounder
+                    margin: 0 -16% 0 0
+                    width: calc($widthImgMinPl + $widthImgiffPl * ((var(--body-max-width) - $minRes) / $difMaxMinRes))
+                    height: calc($widthImgMinPl + $widthImgiffPl * ((var(--body-max-width) - $minRes) / $difMaxMinRes))
+        .text
+            &__title
+                text-align: center
+            &__descr
+                text-align: center
+            &__divider
+                margin: 0 auto
+            &__list
+                align-items: center
+@media ( max-width: 768px )
+    .platform
+        &__cards-wrapper
+            gap: 30px
+        .cards
+            &__item
+                min-height: 130px
+            &__items-wrapper
+                gap: 30px
+            .item
+                &__rounder
+                    margin: 0 calc($margRounderMinPl-768 - $margRounderDiffPl-768 * ((var(--body-max-width) - $minRes) / $difMaxMinRes)) 0 0
+                &__descr
+                    font-size: 12px
+@media ( max-width: 576px )
+    .platform
+        &__cards-wrapper
+            gap: 10px
+        .text
+            &__descr
+                text-align: left
+            &__list
+                align-items: flex-start
+        .cards
+            &__items-wrapper
+                gap: 10px
+            &__item
+                gap: 16px
+                min-height: 116px
+            .item
+                &__rounder
+                    margin: 0 calc($margRounderMinPl-576 - $margRounderDiffPl-576 * ((var(--body-max-width) - $minRes) / $difMaxMinRes)) 0 0
