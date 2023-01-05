@@ -1,6 +1,7 @@
 // HAMBURGER
 
 const headerMenuClone = document.querySelector(".header__menu").cloneNode(1),
+    footerMenuClone = document.querySelector(".footer__menu").cloneNode(1),
     hamburger = document.querySelector(".hamburger"),
     popup = document.querySelector(".popup"),
     popupContent = document.querySelector(".popup__content"),
@@ -11,4 +12,5 @@ hamburger.addEventListener("click", () =>{
     popup.classList.toggle("show");
     body.classList.toggle("noscroll");
     popupContent.appendChild(headerMenuClone);
+    popupContent.appendChild(footerMenuClone);
 })
