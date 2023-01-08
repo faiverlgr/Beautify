@@ -15,6 +15,8 @@ hamburger.addEventListener("click", () =>{
     popupContent.appendChild(footerMenuClone);
 })
 
+// SWIPER
+
 new Swiper('.testimonial__swiper', {
     navigation:{
         nextEl:'.slide__next',

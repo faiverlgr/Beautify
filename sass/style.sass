@@ -751,8 +751,29 @@
     .mentor
         &__bg
             display: none
+        .cards
+            &__item
+                flex: 1 0 40%
+@media ( max-width: 576px )
+    .mentor
+        &__cards-wrapper
+            gap: 10px
+        .cards
+            &__item
+                min-height: 310px
+            .item
+                &__position
+                    min-height: 60px
+                    font-size: 12px
+                &__name
+                    font-size: 16px
+                &__img
+                    height: 220px
 
 // MENTOR END
+
+
+// TESTIMONTIAL START
 
 .testimonial
     &__content
@@ -832,7 +853,7 @@
         &__subtitle
             font-size: 16px
         &__slide
-            padding: 10px
+            padding: 0
             grid-template-columns: 120px 350px
             column-gap: 20px
         .slide
@@ -861,6 +882,10 @@
                 max-width: 60px
             &__img
                 border: 3px solid #FFEEEE
+
+// TESTIMONTIAL END
+  
+
 // FOOTER START
 
 .footer
@@ -981,3 +1006,5 @@
     .footer
         &__info
             padding: 20px 30px 20px 20px 
+
+// FOOTER END
