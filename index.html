@@ -5,8 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Roboto:regular,italic,500,700,900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/style.min.css">
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
     <title>Beautify - Reveal Your Most Radient Glow</title>
 </head>
 <body>
@@ -44,7 +46,7 @@
                     <button class="promo__button">Learn More About Our Products</button>
                 </div>
                 <div class="promo__img-wrapper">
-                    <img class="promo__img img" src="./img/promo/img.png" alt="">
+                    <img class="promo__img img" src="./img/promo/img.webp" alt="">
                 </div>
             </div>
         </div>
@@ -78,6 +80,7 @@
             <div class="platform__wrapper">
                 <h2 class="platform__title title-bg title_margin">Beauty Selling with <span>Digital</span> Pattern</h2>
                 <div class="platform__content">
+                    <img class="platform__bg" src="./img/platform/bg.png" alt="">
                     <div class="platform__cards-wrapper cards">
                         <div class="cards__items-wrapper items-wrapper_margin">
                             <div class="cards__item item">
@@ -140,6 +143,8 @@
             <div class="facilities__wrapper">
                 <div class="facilities__divider divider"></div>
                 <h2 class="facilities__title title-sm title_margin">Pokonya udah pasti kita bimbing, dengan <span>berbagai fasilitas</span></h2>
+                <img class="facilities__bg bg-1" src="./img/facilities/bg-img-1.png" alt="">
+                <img class="facilities__bg bg-2" src="./img/facilities/bg-img-2.png" alt="">
                 <div class="facilities__cards-wrapper cards">
                     <div class="cards__item item">
                         <div class="item__img-wrapper">
@@ -231,7 +236,53 @@
             </div>
         </div>
     </section>
-    <section class="testimonial section_padding"></section>
+    <section class="testimonial section_padding-last">
+        <div class="container">
+            <div class="testimonial__wrapper">
+                <div class="testimonial__content">
+                    <div class="testimonial__text-wrapper">
+                        <div class="testimonial__subtitle">Testimonial</div>
+                        <h2 class="testimonial__title title-sm">Apa kata <span>mereka</span>?</h2>
+                    </div>
+                    <div class="testimonial__swiper swiper">
+                        <div class="swiper-wrapper">
+                            <div class="testimonial__slide swiper-slide">
+                                <div class="slide__img-wrapper">
+                                    <img src="./img/Testimonial/img-1.jpg" alt="" class="slide__img img">
+                                </div>
+                                <div class="slide__name">Annabel Rohan<span>Leader Nasional JAFRA Executive</span></div>
+                                <div class="slide__descr">Arcu sed etiam proin natoque at lectus aliquam. Faucibus ipsum porta eleifend facilisis cras in. Sed etiam proin natoque at lectus aliquam. Faucibus ipsum porta eleifend facilisis cras in.</div>
+                                <div class="slide__buttons">
+                                    <button class="slide__next button">Next<img class="button__img" src="./img/Testimonial/arrow.png" alt=""></button>
+                                </div>
+                            </div>
+                            <div class="testimonial__slide swiper-slide">
+                                <div class="slide__img-wrapper">
+                                    <img src="./img/Testimonial/img-2.jpg" alt="" class="slide__img img">
+                                </div>
+                                <div class="slide__name">Annabel Rohan<span>Leader Nasional JAFRA Executive</span></div>
+                                <div class="slide__descr">Arcu sed etiam proin natoque at lectus aliquam. Faucibus ipsum porta eleifend facilisis cras in. Sed etiam proin natoque at lectus aliquam. Faucibus ipsum porta eleifend facilisis cras in.</div>
+                                <div class="slide__buttons">
+                                    <button class="slide__prev button"><img class="button__img button_prev" src="./img/Testimonial/arrow.png" alt="">Previous</button>
+                                    <button class="slide__next button">Next<img class="button__img" src="./img/Testimonial/arrow.png" alt=""></button>
+                                </div>
+                            </div>
+                            <div class="testimonial__slide swiper-slide">
+                                <div class="slide__img-wrapper">
+                                    <img src="./img/Testimonial/img-3.jpg" alt="" class="slide__img img">
+                                </div>
+                                <div class="slide__name">Annabel Rohan<span>Leader Nasional JAFRA Executive</span></div>
+                                <div class="slide__descr">Arcu sed etiam proin natoque at lectus aliquam. Faucibus ipsum porta eleifend facilisis cras in. Sed etiam proin natoque at lectus aliquam. Faucibus ipsum porta eleifend facilisis cras in.</div>
+                                <div class="slide__buttons">
+                                    <button class="slide__prev button"><img class="button__img button_prev" src="./img/Testimonial/arrow.png" alt="">Previous</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <footer class="footer">
         <div class="container">
             <div class="footer__wrapper">
@@ -260,11 +311,12 @@
                     </div>
                 </div>
                 <div class="footer__img-wrapper">
-                    <img class="footer__img img" src="./img/footer/img.png" alt="">
+                    <img class="footer__img img" src="./img/footer/img.webp" alt="">
                 </div>
             </div>
         </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="./js/main.js"></script>
 </body>
 </html>

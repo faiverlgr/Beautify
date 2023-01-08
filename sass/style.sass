@@ -97,12 +97,16 @@
     font-size: calc($titleFontMin + $titleFontDiff * ((var(--body-max-width) - $minRes) / $difMaxMinRes))
     line-height: 1.14
     color: $secondary-color
+    span
+        color: $support-color
 
 .title-sm
     font-weight: 700
     font-size: calc($titleSmFontMin + $titleSmFontDiff * ((var(--body-max-width) - $minRes) / $difMaxMinRes))
     line-height: 1.35
     color: $secondary-color
+    span
+        color: $support-color
 
 .img
     display: block
@@ -111,6 +115,11 @@
 
 .section_padding
     padding: calc($paddMin + $paddDiff * ((var(--body-max-width) - $minRes) / $difMaxMinRes)) 0
+.section_padding-last
+    padding: calc($paddMin + $paddDiff * ((var(--body-max-width) - $minRes) / $difMaxMinRes)) 0 0 0
+@media ( max-width: 1299px )
+    .section_padding-last
+        padding: calc($paddMin + $paddDiff * ((var(--body-max-width) - $minRes) / $difMaxMinRes)) 0
 
 .title_margin
     margin: 0 0 calc($margTitleMin + $margTitleDiff * ((var(--body-max-width) - $minRes) / $difMaxMinRes)) 0
@@ -404,27 +413,31 @@
 // PLATFORM START    
 
 .platform
+    background: $bg-color
     &__content
+        position: relative
         display: flex
         align-items: center
         justify-content: space-between
         gap: 95px
+    &__bg
+        position: absolute
+        top: 0
+        left: 0
+        z-index: 1
     &__title
         text-align: center
         font-weight: 700
-        span
-            color: $support-color
     &__text-wrapper
         display: flex
         flex-direction: column
         gap: 55px
     &__cards-wrapper
+        position: relative
+        z-index: 2
         display: flex
         gap: 50px
     .text
-        &__title
-            span
-                color: $support-color
         &__list
             display: flex
             flex-direction: column
@@ -515,6 +528,8 @@
         &__content
             flex-direction: column
             gap: 40px
+        &__bg
+            display: none
         &__cards-wrapper
             gap: 50px
         .cards
@@ -578,13 +593,25 @@
 // FACILITIES START  
 
 .facilities
+    background: $bg-color
+    &__wrapper
+        position: relative
     &__divider
         margin: 0 0 calc($margDividerMinF + $margDividerDiffF * ((var(--body-max-width) - $minRes) / $difMaxMinRes)) 0
     &__title
         max-width: 600px 
-        span
-            color: $support-color
+    &__bg
+        position: absolute
+        z-index: 1
+    .bg-1
+        top: 60%
+        left: -5%
+    .bg-2
+        top: 20%
+        left: 50%
     &__cards-wrapper
+        position: relative
+        z-index: 2
         display: grid
         gap: calc($cardsGapMinF + $cardsGapDiffF * ((var(--body-max-width) - $minRes) / $difMaxMinRes))
         grid-template-columns: repeat(4, minmax(200px, 1fr))
@@ -608,8 +635,15 @@
             line-height: 1.54
             text-align: center
             min-height: 80px
+@media ( max-width: 1299px )
+    .facilities
+        .bg-1
+            top: 57%
+            left: -10px
 @media ( max-width: 992px )
     .facilities
+        .bg-2, .bg-1
+            display: none
         &__cards-wrapper
             justify-content: center
             gap: 24px
@@ -663,8 +697,6 @@
         position: relative
     &__title
         text-align: center
-        span
-            color: $support-color
     &__bg
         position: absolute
         top: 0
@@ -722,7 +754,113 @@
 
 // MENTOR END
 
-
+.testimonial
+    &__content
+        display: flex
+        flex-direction: column
+        justify-content: flex-end
+    &__swiper
+        width: 100%
+    &__text-wrapper
+        margin: 0 0 calc($paddTextMinT + $paddTextDiffT * ((var(--body-max-width) - $minRes) / $difMaxMinRes)) 45%
+        display: flex
+        flex-direction: column
+    &__slide
+        padding: 15px
+        display: grid
+        grid-template-columns: 180px 450px
+        grid-template-areas: "image title" "image descr" "image buttons"
+        justify-content: flex-end
+        column-gap: 30px
+    &__subtitle
+        font-size: 18px
+        font-weight: 700
+        color: $support-color
+        line-height: 1.56
+    .slide
+        &__img-wrapper
+            grid-area: image
+            display: flex
+            align-items: center
+            max-width: 180px
+        &__img
+            border-radius: 0 100% 100% 100%
+        &__name
+            margin: 0 0 16px 0
+            font-size: 18px
+            font-weight: 700
+            line-height: 1.56
+            color: $secondary-color
+            grid-area: title
+            display: flex
+            flex-direction: column
+            span
+                font-size: 12px
+                font-weight: 400
+                line-height: 1.5
+                color: $support-color
+        &__descr
+            grid-area: descr
+            margin: 0 0 12px 0
+        &__buttons
+            grid-area: buttons
+            display: flex
+            gap: 20px
+            .button
+                display: flex
+                align-items: center
+                gap: 10px
+                background: transparent
+                font-size: 14px
+                font-weight: 500
+                text-transform: lowercase
+                color: $secondary-color
+                transition: 300ms color
+                &_prev
+                    transform: rotate(-180deg)
+                &:hover, &:focus
+                    color: $support-color
+@media ( max-width: 1299px )
+    .testimonial
+        &__text-wrapper
+            margin: 0 0 40px 0
+            align-items: center
+        &__slide
+            justify-content: center
+@media ( max-width: 768px )
+    .testimonial
+        &__subtitle
+            font-size: 16px
+        &__slide
+            padding: 10px
+            grid-template-columns: 120px 350px
+            column-gap: 20px
+        .slide
+            &__img-wrapper
+                max-width: 120px
+            &__descr
+                font-size: 14px
+@media ( max-width: 576px )
+    .testimonial
+        &__subtitle
+            font-size: 18px
+        &__text-wrapper
+            align-items: flex-start
+        &__slide
+            padding: 15px
+            grid-template-columns: minmax( 60px, 1fr) minmax( 80%, 1fr)
+            grid-template-areas: "image title" "descr descr" "buttons buttons"
+            column-gap: 10px
+        .slide
+            &__name
+                margin: 0 0 17px 0
+                justify-content: center
+                font-size: 14px
+            &__img-wrapper
+                margin: 0 0 17px 0
+                max-width: 60px
+            &__img
+                border: 3px solid #FFEEEE
 // FOOTER START
 
 .footer

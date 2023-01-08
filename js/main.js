@@ -14,3 +14,11 @@ hamburger.addEventListener("click", () =>{
     popupContent.appendChild(headerMenuClone);
     popupContent.appendChild(footerMenuClone);
 })
+
+new Swiper('.testimonial__swiper', {
+    navigation:{
+        nextEl:'.slide__next',
+        prevEl:'.slide__prev'
+    },
+    simulateTouch: false
+});
